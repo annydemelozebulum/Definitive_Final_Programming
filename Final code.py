@@ -60,28 +60,27 @@ hangman_graphics = [
     """
 ]
 
-# Word categories and words
+# Word Dictionary with Categories
 word_categories = {
     "Singers": ["adele", "drake", "rihanna", "beyonce", "eminem"],
     "TV Shows": ["friends", "lucifer", "riverdale", "euphoria", "vikings"],
     "Classmates": ["alberto", "guillermo", "natalia", "soraya", "timothy"]
 }
 
-# Message Possibilities
+# Possibilities of Messages depending on results: they are randomly chosen
 possibilities_correct = ["Correct guess", "Great guess", "Good job", "Amazing Intuition", "You have nice techniques"]
 possibilities_incorrect = ["Wrong attempt", "You're close, think a bit more", "Your hangman might die :("]
 
-# Function to choose a random word from a category
+# Function for category and word selection
 def choose_word(category):
     return random.choice(word_categories[category])
 
-# Function to choose a random category
 def choose_category():
     chosen_category = random.choice(list(word_categories.keys()))
     print(f"Category: {chosen_category}")
     return chosen_category
 
-# Function to display hangman graphic
+# Function to display hangman graphic according to guesses
 def display_hangman(guesses):
     print(hangman_graphics[6 - guesses])
 
@@ -89,7 +88,7 @@ def display_hangman(guesses):
 def is_word_guessed(word, guessed_letters):
     return all(letter in guessed_letters for letter in word)
 
-# Function to play Hangman
+# Function for the main game
 def play_hangman():
     while True:
         # Introduction
@@ -112,10 +111,10 @@ def play_hangman():
             display = " ".join(letter if letter in guessed_letters else "_" for letter in word)
             print(display)
 
-            # Player's guess
+            # Player guess
             guess = input("Guess a letter: ").lower()
 
-            # Check if the guessed letter is correct
+            # Checking if the guessed letter is correct
             if guess in word:
                 correct_message = random.choice(possibilities_correct)
                 print(correct_message, name, "!")
@@ -125,7 +124,7 @@ def play_hangman():
                 print(incorrect_message, name, "!")
                 incorrect_guesses += 1
 
-            # Check if the word is guessed
+            # Checking if the word is guessed
             if is_word_guessed(word, guessed_letters):
                 print(f"Congratulations, {name}! You guessed the word: {word}")
                 break
@@ -134,7 +133,7 @@ def play_hangman():
             print("Sorry, you ran out of lives. The word was:", word)
             print(hangman_graphics[0])
 
-        # Ask the player if they want to play again
+        # Restart Option at the end
         restart = input("Do you wish to restart? (yes/no): ").lower()
         if restart != "yes":
             print("Thanks for playing!")
