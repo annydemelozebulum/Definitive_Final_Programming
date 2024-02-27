@@ -1,6 +1,6 @@
 import random
 
-# Hangman visuals
+# Hangman visuals according to guesses
 hangman_graphics = [
     """
     ________
@@ -139,5 +139,4 @@ def play_hangman():
             print("Thanks for playing!")
             break
 
-# Play the game
 play_hangman()
