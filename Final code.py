@@ -77,7 +77,7 @@ def choose_word(category):
 
 def choose_category():
     chosen_category = random.choice(list(word_categories.keys()))
-    print(f"Category: {chosen_category}")
+    print("Category:", chosen_category)
     return chosen_category
 
 # Function to display hangman graphic according to guesses
@@ -94,7 +94,7 @@ def play_hangman():
         # Introduction
         print("Welcome to Hangman!")
         name = input("Enter your name: ")
-        print(f"Hello, {name}! Let's play Hangman.")
+        print("Hello,", name ,"! Let's play Hangman.")
 
         # Choose a category and a word
         category = choose_category()
@@ -126,7 +126,7 @@ def play_hangman():
 
             # Checking if the word is guessed
             if is_word_guessed(word, guessed_letters):
-                print(f"Congratulations, {name}! You guessed the word: {word}")
+                print(f"Congratulations", name, " You guessed the word:" , word,"!")
                 break
 
         else:
