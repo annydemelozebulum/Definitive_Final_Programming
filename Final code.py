@@ -92,7 +92,7 @@ def is_word_guessed(word, guessed_letters):
 def play_hangman():
     while True:
         # Introduction
-        print("Welcome to Hangman!")
+        print("Welcome to our Hangman Game!")
         name = input("Enter your name: ")
         print("Hello,", name ,"! Let's play Hangman.")
 
